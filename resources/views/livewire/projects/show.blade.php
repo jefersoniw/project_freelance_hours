@@ -1,3 +1,1 @@
-<div>
-    componente livewire projects.show
-</div>
+<x-projects.card :$project />
