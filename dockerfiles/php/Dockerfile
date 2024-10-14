@@ -22,4 +22,9 @@ RUN apk add --no-cache nodejs npm
 # Set working directory
 WORKDIR /var/www
 
+# Create storage and bootstrap/cache directories if they do not exist
+RUN mkdir -p /var/www/storage /var/www/bootstrap/cache \
+  && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+  && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
 EXPOSE 9000
