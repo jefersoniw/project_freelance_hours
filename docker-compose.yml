@@ -13,6 +13,8 @@ services:
       - .:/var/www
     networks:
       - laravel_app
+    command: |
+      sh -c "chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache && php-fpm"
 
   # nginx
   nginx_freelance_hours:
