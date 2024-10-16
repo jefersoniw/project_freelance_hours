@@ -24,7 +24,19 @@ class Proposals extends Component
 
     public function loadMore()
     {
-        $this->qtd += 10;
+        $this->qtd += 5;
+    }
+
+    #[Computed()]
+    public function lastProposalTime()
+    {
+        return $this
+            ->project
+            ->proposals()
+            ->latest()
+            ->first()
+            ->created_at
+            ->diffForHumans();
     }
 
     public function render()
